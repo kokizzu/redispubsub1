@@ -1,26 +1,50 @@
 version: '3'
 
 services:
-  redismaster1:
-    image: redis:6
-    container_name: redismaster1
+#  redismaster1:
+#    image: redis:6
+#    container_name: redismaster1
+#    ports:
+#      - "6379:6379"
+#
+##  redisslave1:
+##    image: redis:6
+##    container_name: redisslave1
+##    ports:
+##      - "6380:6379"
+##    command: redis-server --slaveof redismaster1 6379
+##    depends_on:
+##      - redismaster1
+##
+##  redisslave2:
+##    image: redis:6
+##    container_name: redisslave2
+##    ports:
+##      - "6381:6379"
+##    command: redis-server --slaveof redismaster1 6379
+##    depends_on:
+##      - redismaster1
+
+  kvrocksmaster1:
+    image: apache/kvrocks:2.6.0
+    container_name: kvrocksmaster1
     ports:
       - "6379:6379"
-
-#  redisslave1:
-#    image: redis:6
-#    container_name: redisslave1
+#    volumes:
+#      - ./tmpdb/var_lib_kvrocks:/var/lib/kvrocks
+#  kvrocksslave1:
+#    image: apache/kvrocks:2.6.0
+#    container_name: kvrocksslave1
 #    ports:
 #      - "6380:6379"
-#    command: redis-server --slaveof redismaster1 6379
+#    command: kvrocks-server --slaveof kvrocksmaster1 6379
 #    depends_on:
-#      - redismaster1
-#
-#  redisslave2:
-#    image: redis:6
-#    container_name: redisslave2
+#      - kvrocksmaster1
+#  kvrocksslave2:
+#    image: apache/kvrocks:2.6.0
+#    container_name: kvrocksslave2
 #    ports:
 #      - "6381:6379"
-#    command: redis-server --slaveof redismaster1 6379
+#    command: kvrocks-server --slaveof kvrocksmaster1 6379
 #    depends_on:
-#      - redismaster1
+#      - kvrocksmaster1

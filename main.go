@@ -69,8 +69,8 @@ func main() {
 		L.PanicIf(err, `pubsub.OpenSubscription`)
 		defer subs.Shutdown(ctx)
 
+		fmt.Printf("%s subscribing to topic %s\n", subscriber, topic)
 		for {
-			fmt.Println(`subscribing to topic`, topic)
 			msg, err := subs.Receive(ctx)
 			if err != nil {
 				fmt.Printf("%s got error: %s\n", subscriber, err)
