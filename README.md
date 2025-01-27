@@ -1,7 +1,7 @@
 
 # Redis Pub/Sub At Least Once Delivery Example
 
-this example demo-ing how to make Redis that are by default only have two mode:
+this example demonstrate how to make Redis that are by default only have two mode:
 - broadcast mode (at most once delivery, so if client down at the moment of broadcast time they will not ever receive the message)
 - queue mode (at least once delivery, but not broadcasting/without consumer group, so 1 message only acked by 1 subscriber)
 
