@@ -12,13 +12,20 @@ to mimic Kafka/Jetsream/standard-AMQP, we need to have both: broadcast (having a
 ```shell
 docker compose up
 
-go run main.go publisher topic1
+make run CMD='go run main.go publisher topic1'
 ```
 
 on another terminal:
 
 ```shell
-go run main.go subscriber topic1
+make run CMD='go run main.go subscriber topic1'
 
-go run main.go subscriber topic1 subscriber1
+make run CMD='go run main.go subscriber topic1 subscriber1'
 ```
+
+## Maintenance checklist
+
+- [x] Go runtime updated to 1.26.5.
+- [x] Redis Pub/Sub, Go Cloud, and gotro dependencies refreshed.
+- [x] `make test` compiles the example without requiring Redis.
+- [x] `make verify-dependency-security` and `make vulncheck` check dependency security.

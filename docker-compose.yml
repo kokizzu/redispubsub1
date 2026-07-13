@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-#  redismaster1:
-#    image: redis:6
-#    container_name: redismaster1
-#    ports:
-#      - "6379:6379"
+  redismaster1:
+    image: redis:6
+    container_name: redismaster1
+    ports:
+      - "6379:6379"
 #
 ##  redisslave1:
 ##    image: redis:6
@@ -25,11 +25,11 @@ services:
 ##    depends_on:
 ##      - redismaster1
 
-  kvrocksmaster1:
-    image: apache/kvrocks:2.6.0
-    container_name: kvrocksmaster1
-    ports:
-      - "6379:6379"
+#  kvrocksmaster1:
+#    image: apache/kvrocks:2.6.0
+#    container_name: kvrocksmaster1
+#    ports:
+#      - "6379:6379"
 #    volumes:
 #      - ./tmpdb/var_lib_kvrocks:/var/lib/kvrocks
 #  kvrocksslave1:
